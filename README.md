@@ -6,6 +6,8 @@
 
 **alt's Ambience Framework** allows you to configure ambient sounds using the `AmbienceSoundDef` class, which extends RimWorld’s `SoundDef`.
 
+Any mod using this framework **MUST** be loaded after it with it being in the active modlist.
+
 #### XML Configuration
 
 ```xml
