@@ -61,6 +61,8 @@ Custom Tags
   
   `Season_Winter`: Plays in winter.
   
+  `DisableByDefault`: Disables the sound from playing by default. Can be switched on in the mod settings.
+  
 **Note:** When using multiple tags in the `<customTags>` field, the selection works on an OR basis. This means that the sound will be eligible for playback if any one of the specified tags (e.g., `Weather_Rain` OR `Time_Night`) is present. However, you must specify at least one tag in the `<customTags>` field; otherwise, the sound will not play. The sound does not require all tags to be present, only one of the specified tags is needed for the sound to be selected.
 
 ## Mod Settings
