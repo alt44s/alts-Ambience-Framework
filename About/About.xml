@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>alt's Ambience Framework</name>
+	<author>alt4s</author>
+	<packageId>alt4s.altsambienceframework</packageId>
+	<description>A lightweight framework to allow playing sounds at random intervals without specific triggers.
+	
+	Contains conditions for various different lists of sounds to be selected and played.</description>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+</ModMetaData>

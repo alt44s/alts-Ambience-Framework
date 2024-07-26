@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- ModSettings -->
+  <AAE_MinSoundTick>Minimum Sound Tick Interval (Hours):</AAE_MinSoundTick>
+  <AAE_MaxSoundTick>Maximum Sound Tick Interval (Hours):</AAE_MaxSoundTick>
+  <AAE_MinSoundVol>Minimum Sound Volume (This only applies on restart!):</AAE_MinSoundVol>
+  <AAE_MaxSoundVol>Maximum Sound Volume (This only applies on restart!):</AAE_MaxSoundVol>
+  <AAE_Enable>Enable</AAE_Enable>
+  <AAE_ResetToDefault>Reset to Default</AAE_ResetToDefault>
+  <AAE_CheckboxInfo>Checkbox settings changes will only apply after reloading a save.</AAE_CheckboxInfo>
+</LanguageData>

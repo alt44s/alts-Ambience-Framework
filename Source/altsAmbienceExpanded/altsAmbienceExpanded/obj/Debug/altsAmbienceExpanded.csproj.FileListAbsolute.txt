@@ -1,0 +1,8 @@
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Expanded\Assemblies\altsAmbienceExpanded.dll
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Expanded\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.csproj.AssemblyReference.cache
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Expanded\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.csproj.CoreCompileInputs.cache
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Expanded\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.dll
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Framework\Assemblies\altsAmbienceExpanded.dll
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Framework\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.csproj.AssemblyReference.cache
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Framework\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.csproj.CoreCompileInputs.cache
+F:\SteamLibrary\steamapps\common\RimWorld\Mods\alt's Ambience Framework\Source\altsAmbienceExpanded\altsAmbienceExpanded\obj\Debug\altsAmbienceExpanded.dll
