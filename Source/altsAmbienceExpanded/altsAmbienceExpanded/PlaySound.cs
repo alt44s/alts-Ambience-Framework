@@ -3,7 +3,6 @@ using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.Sound;
-using UnityEngine;
 
 namespace altsAmbientSounds
 {
@@ -45,7 +44,7 @@ namespace altsAmbientSounds
 
         private bool ShouldPlaySound(AmbienceSoundDef soundDef)
         {
-            if (map?.weatherManager?.curWeather?.defName == null)
+            if (map == null)
 			{
                 return false;
 			}
@@ -54,6 +53,11 @@ namespace altsAmbientSounds
             {
                 return true;
             }
+
+            if (map.weatherManager?.curWeather?.defName == null)
+			{
+                return false;
+			}
 
             if (map.weatherManager.curWeather.defName == "Clear" && soundDef.customTags.Contains("Weather_Clear"))
             {
