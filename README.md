@@ -61,11 +61,25 @@ Custom Tags
   
   `Season_Winter`: Plays in winter.
   
+  `Biome_"biome-name"`: Plays in a specific biome. All usable biome tags should be displayed at the bottom of the mod settings page.
+  
   `DisableByDefault`: Disables the sound from playing by default. Can be switched on in the mod settings.
   
-**Note:** When using multiple tags in the `<customTags>` field, the selection works on an OR basis. This means that the sound will be eligible for playback if any one of the specified tags (e.g., `Weather_Rain` OR `Time_Night`) is present. However, you must specify at least one tag in the `<customTags>` field; otherwise, the sound will not play. The sound does not require all tags to be present, only one of the specified tags is needed for the sound to be selected.
+### Custom Tags
+
+**Complex Tags**:
+
+* Tags can also use `" AND "` to specify multiple conditions that must all be met for the sound to play. For example:
+  * `<li>Weather_Clear AND Time_Night AND Season_Summer</li>` means the sound will only play if it is clear, night time, and summer all at once.
+
+**Notes**:
+
+* When using multiple tags in the `<customTags>` field in separate <li>, the selection works on an OR basis. This means the sound will be eligible for playback if any one of the specified tags (e.g., `Weather_Rain` OR `Time_Night`) is present.
+* Complex tags with `" AND "` are treated as a single condition composed of multiple requirements. For a complex tag to match, all conditions in the tag must be met.
+* You must specify at least one tag in the `<customTags>` field; otherwise, the sound will not play. The sound does not require all tags to be present, only one of the specified tags is needed for the sound to be selected.
 
 ## Mod Settings
 
 - Adjust **Tick Interval Ranges** and **Sound Volume Ranges** in mod settings.
 - Disable sounds individually via settings menu.
+- View all available biome tags.

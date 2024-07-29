@@ -3,6 +3,7 @@ using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.Sound;
+using System;
 
 namespace altsAmbientSounds
 {
@@ -45,74 +46,92 @@ namespace altsAmbientSounds
         private bool ShouldPlaySound(AmbienceSoundDef soundDef)
         {
             if (map == null)
-			{
+            {
                 return false;
-			}
+            }
 
-            if (soundDef.customTags.Contains("Any"))
+            bool CheckComplexTag(string complexTag)
             {
+                var conditions = complexTag.Split(new[] { " AND " }, StringSplitOptions.None);
+                foreach (var condition in conditions)
+                {
+                    if (!CheckCondition(condition))
+                    {
+                        return false;
+                    }
+                }
                 return true;
             }
 
-            if (map.weatherManager?.curWeather?.defName == null)
-			{
-                return false;
-			}
-
-            if (map.weatherManager.curWeather.defName == "Clear" && soundDef.customTags.Contains("Weather_Clear"))
+            bool CheckCondition(string condition)
             {
-                return true;
-            }
-
-            if (map.weatherManager.curWeather.rainRate > 0.5f && soundDef.customTags.Contains("Weather_Rain"))
-            {
-                return true;
-            }
-
-            if (map.weatherManager.curWeather.snowRate > 0.5f && soundDef.customTags.Contains("Weather_Snow"))
-            {
-                return true;
-            }
-
-            if (map.weatherManager.curWeather.defName == "Fog" && soundDef.customTags.Contains("Weather_Fog"))
-            {
-                return true;
-            }
-
-            if (GenLocalDate.HourInteger(map) >= 23 || GenLocalDate.HourInteger(map) <= 5)
-            {
-                if (soundDef.customTags.Contains("Time_Night"))
+                if (condition == "Any")
                 {
                     return true;
                 }
-            }
-            else
-            {
-                if (soundDef.customTags.Contains("Time_Day"))
+
+                if (condition == "Weather_Clear" && map.weatherManager.curWeather.defName == "Clear")
                 {
                     return true;
                 }
+
+                if (condition == "Weather_Rain" && map.weatherManager.curWeather.rainRate > 0.5f)
+                {
+                    return true;
+                }
+
+                if (condition == "Weather_Snow" && map.weatherManager.curWeather.snowRate > 0.5f)
+                {
+                    return true;
+                }
+
+                if (condition == "Weather_Fog" && map.weatherManager.curWeather.defName == "Fog")
+                {
+                    return true;
+                }
+
+                if (condition == "Time_Night" && (GenLocalDate.HourInteger(map) >= 23 || GenLocalDate.HourInteger(map) <= 5))
+                {
+                    return true;
+                }
+
+                if (condition == "Time_Day" && !(GenLocalDate.HourInteger(map) >= 23 || GenLocalDate.HourInteger(map) <= 5))
+                {
+                    return true;
+                }
+
+                Season currentSeason = GenLocalDate.Season(map);
+                if (condition == "Season_Spring" && currentSeason == Season.Spring)
+                {
+                    return true;
+                }
+                if (condition == "Season_Summer" && currentSeason == Season.Summer)
+                {
+                    return true;
+                }
+                if (condition == "Season_Fall" && currentSeason == Season.Fall)
+                {
+                    return true;
+                }
+                if (condition == "Season_Winter" && currentSeason == Season.Winter)
+                {
+                    return true;
+                }
+
+                if (condition.StartsWith("Biome_") && condition == "Biome_" + map.Biome.defName)
+                {
+                    return true;
+                }
+
+                return false;
             }
 
-            Season currentSeason = GenLocalDate.Season(map);
-            switch (currentSeason)
+            foreach (var tag in soundDef.customTags)
             {
-                case Season.Spring:
-                    if (soundDef.customTags.Contains("Season_Spring"))
-                        return true;
-                    break;
-                case Season.Summer:
-                    if (soundDef.customTags.Contains("Season_Summer"))
-                        return true;
-                    break;
-                case Season.Fall:
-                    if (soundDef.customTags.Contains("Season_Fall"))
-                        return true;
-                    break;
-                case Season.Winter:
-                    if (soundDef.customTags.Contains("Season_Winter"))
-                        return true;
-                    break;
+                if (CheckComplexTag(tag))
+                {
+                    return true;
+                }
             }
 
             return false;

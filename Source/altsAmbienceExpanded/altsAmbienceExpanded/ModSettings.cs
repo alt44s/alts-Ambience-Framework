@@ -1,6 +1,7 @@
 ﻿using Verse;
 using UnityEngine;
 using System.Collections.Generic;
+using RimWorld;
 
 namespace altsAmbientSounds
 {
@@ -29,10 +30,13 @@ namespace altsAmbientSounds
         public static AAEModSettings settings;
         private Vector2 scrollPosition = Vector2.zero;
         private bool messageShown = true;
+        private List<BiomeDef> biomeDefs;
+        private float biomeLabelHeight;
 
         public AAEMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<AAEModSettings>();
+            biomeDefs = DefDatabase<BiomeDef>.AllDefsListForReading;
 
             if (settings.soundEnabled == null)
             {
@@ -59,7 +63,14 @@ namespace altsAmbientSounds
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
+            if (biomeLabelHeight == 0)
+			{
+                biomeLabelHeight = Text.CalcHeight("Biome_Label", inRect.width);
+			}
+
             float viewHeight = 180f + settings.soundEnabled.Count * 30f;
+            viewHeight += biomeLabelHeight * (biomeDefs.Count + 1);
+
             Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, viewHeight);
 
             Widgets.BeginScrollView(inRect, ref scrollPosition, viewRect);
@@ -124,6 +135,15 @@ namespace altsAmbientSounds
                 }
 
                 listingStandard.Gap(2);
+            }
+
+            listingStandard.Gap();
+
+            listingStandard.Label("Available Biome Tags:");
+            foreach (var biomeDef in biomeDefs)
+            {
+                string biomeTag = $"Biome_{biomeDef.defName}";
+                listingStandard.Label($" - <color=grey>{biomeTag}</color>");
             }
 
             listingStandard.Gap();
