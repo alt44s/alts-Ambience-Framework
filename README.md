@@ -74,7 +74,7 @@ Custom Tags
 
 **Notes**:
 
-* When using multiple tags in the `<customTags>` field in separate <li>, the selection works on an OR basis. This means the sound will be eligible for playback if any one of the specified tags (e.g., `Weather_Rain` OR `Time_Night`) is present.
+* When using multiple tags in the `<customTags>` field in separate lines, the selection works on an OR basis. This means the sound will be eligible for playback if any one of the specified tags (e.g., `Weather_Rain` OR `Time_Night`) is present.
 * Complex tags with `" AND "` are treated as a single condition composed of multiple requirements. For a complex tag to match, all conditions in the tag must be met.
 * You must specify at least one tag in the `<customTags>` field; otherwise, the sound will not play. The sound does not require all tags to be present, only one of the specified tags is needed for the sound to be selected.
 
