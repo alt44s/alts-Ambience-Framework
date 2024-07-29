@@ -8,4 +8,5 @@
   <AAE_Enable>Enable</AAE_Enable>
   <AAE_ResetToDefault>Reset to Default</AAE_ResetToDefault>
   <AAE_CheckboxInfo>Checkbox settings changes will only apply after reloading a save.</AAE_CheckboxInfo>
+  <AAE_AvailableBiomeTags>Available Biome Tags:</AAE_AvailableBiomeTags>
 </LanguageData>

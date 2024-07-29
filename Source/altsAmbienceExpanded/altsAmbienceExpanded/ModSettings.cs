@@ -139,7 +139,7 @@ namespace altsAmbientSounds
 
             listingStandard.Gap();
 
-            listingStandard.Label("Available Biome Tags:");
+            listingStandard.Label("AAE_AvailableBiomeTags".Translate());
             foreach (var biomeDef in biomeDefs)
             {
                 string biomeTag = $"Biome_{biomeDef.defName}";
